@@ -1,7 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
+import Banner from "../components/banner/Banner";
 
 const Main = () => {
-  return <div>Main</div>;
+  return (
+    <Fragment>
+      <Banner></Banner>
+    </Fragment>
+  );
 };
 
 export default Main;

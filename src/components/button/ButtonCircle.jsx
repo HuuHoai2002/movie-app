@@ -5,11 +5,13 @@ const ButtonCircle = ({
   className = "",
   changeType = false,
   borderColor = "border-white",
+  onClick,
 }) => {
   return (
     <button
-      className={`flex items-center justify-center p-3 border ${borderColor} rounded-full hover:bg-secondary transition-all ${className}`}
+      className={`flex items-center justify-center p-3 border ${borderColor} rounded-full transition-all ${className}`}
       title={title}
+      onClick={onClick}
     >
       {changeType ? (
         <svg

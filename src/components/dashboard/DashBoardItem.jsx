@@ -2,7 +2,7 @@ import React from "react";
 
 const DashBoardItem = ({ title, children }) => {
   return (
-    <div className="flex flex-col gap-y-6 mb-10">
+    <div className="flex flex-col gap-y-5 mb-10">
       <span className="font-semibold text-sm text-borderLight">{title}</span>
       {children}
     </div>

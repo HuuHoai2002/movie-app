@@ -4,9 +4,10 @@
 
 @layer base {
   body {
-    @apply bg-[#191A1F] font-body text-white pt-10 px-10 mx-auto w-[calc(100%_-_400px)];
+    @apply bg-[#191A1F] font-body text-white pt-5 px-5 mx-auto w-[calc(100%_-_450px)];
   }
 }
 @layer components {
-
+  .page-container {
+  }
 }
