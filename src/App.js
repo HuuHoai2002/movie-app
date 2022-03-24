@@ -1,22 +1,20 @@
-import React from "react";
-import ButtonCircle from "./components/button/ButtonCircle";
-import ButtonPrimary from "./components/button/ButtonPrimary";
-import ButtonSecondary from "./components/button/ButtonSecondary";
-import IMDBIcon from "./components/button/IMDBIcon";
+import React, { Fragment } from "react";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import Main from "./pages/Main";
+import PageNotFound from "./pages/PageNotFound";
 
 const App = () => {
   return (
-    <div className="mx-auto p-10 flex items-center gap-x-10">
-      <ButtonPrimary title={"Watch"}>Watch</ButtonPrimary>
-      <ButtonSecondary title={"Thêm"}></ButtonSecondary>
-      <h1 className="text-textcolor font-medium text-xl">HIHII</h1>
-      <ButtonCircle></ButtonCircle>
-      <ButtonCircle changeType={true}></ButtonCircle>
-      <span className="flex gap-x-2 items-center">
-        <IMDBIcon></IMDBIcon>
-        9.2
-      </span>
-    </div>
+    <Fragment>
+      <Routes>
+        <Route path="/" element={<HomePage></HomePage>}>
+          <Route path="/" element={<Main></Main>}></Route>
+          <Route path="/movies" element={<div>Movies</div>}></Route>
+          <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
+        </Route>
+      </Routes>
+    </Fragment>
   );
 };
 

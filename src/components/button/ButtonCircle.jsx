@@ -1,9 +1,14 @@
 import React from "react";
 
-const ButtonCircle = ({ title = "", className = "", changeType = false }) => {
+const ButtonCircle = ({
+  title = "",
+  className = "",
+  changeType = false,
+  borderColor = "border-white",
+}) => {
   return (
     <button
-      className="flex items-center justify-center p-3 border border-white rounded-full hover:bg-secondary transition-all"
+      className={`flex items-center justify-center p-3 border ${borderColor} rounded-full hover:bg-secondary transition-all ${className}`}
       title={title}
     >
       {changeType ? (
