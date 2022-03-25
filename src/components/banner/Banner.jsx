@@ -4,6 +4,7 @@ import { useMovies } from "../../contexts/movieContext";
 import useSWR from "swr";
 import { SwiperSlide, Swiper } from "swiper/react";
 import MovieReview from "../movie/MovieReview";
+import User from "../user/User";
 
 const Banner = () => {
   const { apiKey, handleNavigate, fetcher, swiperRef } = useMovies();
@@ -30,11 +31,12 @@ const Banner = () => {
             <SwiperSlide key={item.id}>
               <BannerItem
                 data={item}
-                onClick={() => handleNavigate("movie", item.id)}></BannerItem>
+                onClick={() => handleNavigate("watch", item.id)}></BannerItem>
             </SwiperSlide>
           ))}
       </Swiper>
-      <MovieReview></MovieReview>
+      <User></User>
+      <MovieReview title={"Popular Movies"} info="top_rated"></MovieReview>
     </Fragment>
   );
 };

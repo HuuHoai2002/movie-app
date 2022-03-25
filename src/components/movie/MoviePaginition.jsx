@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import ReactPaginate from "react-paginate";
 import useSWR from "swr";
 import { useMovies } from "../../contexts/movieContext";
@@ -39,7 +39,7 @@ const MoviePaginition = () => {
   };
 
   return (
-    <div>
+    <Fragment>
       <div className="grid grid-cols-4 gap-5">
         {!loading &&
           movies.length > 0 &&
@@ -66,7 +66,7 @@ const MoviePaginition = () => {
           className="pagination"
         />
       </div>
-    </div>
+    </Fragment>
   );
 };
 

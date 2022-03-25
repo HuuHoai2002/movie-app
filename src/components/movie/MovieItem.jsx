@@ -3,12 +3,11 @@ import { useMovies } from "../../contexts/movieContext";
 import ButtonPrimary from "../button/ButtonPrimary";
 import IMDBIcon from "../button/IMDBIcon";
 
-const MovieItem = ({ data, className, imgClassName }) => {
+const MovieItem = ({ data, className = "", imgClassName }) => {
   const { handleNavigate, imagesPath } = useMovies();
   return (
     <div
-      className={`${className} movie-card rounded-lg p-2 bg-[#191A1F] border border-[#24252A] relative h-full flex flex-col select-none gap-2 mx-2 overflow-hidden`}
-    >
+      className={`${className} movie-card rounded-lg p-2 bg-[#191A1F] border border-[#24252A] relative h-full flex flex-col select-none gap-3 mx-2 overflow-hidden`}>
       <img
         src={`${imagesPath}${data.poster_path}`}
         alt=""
@@ -28,8 +27,8 @@ const MovieItem = ({ data, className, imgClassName }) => {
         <div className="mt-auto">
           <ButtonPrimary
             className="py-2 w-full !rounded-lg"
-            onClick={() => handleNavigate("movie", data.id)}
-          >
+            onClick={() => handleNavigate("watch", data.id)}
+            title="Watch Now">
             Watch Now
           </ButtonPrimary>
         </div>

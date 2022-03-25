@@ -87,7 +87,6 @@ const MoviePage = () => {
               className={"!mx-0"}></MovieItem>
           ))}
       </div>
-
       <div className="mt-5 mb-2">
         <ReactPaginate
           breakLabel="..."
