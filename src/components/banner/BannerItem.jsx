@@ -1,5 +1,6 @@
 import React from "react";
 import { useMovies } from "../../contexts/movieContext";
+import ButtonCircle from "../button/ButtonCircle";
 import ButtonPrimary from "../button/ButtonPrimary";
 import ButtonSecondary from "../button/ButtonSecondary";
 

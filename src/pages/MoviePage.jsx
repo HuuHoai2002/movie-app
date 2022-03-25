@@ -38,7 +38,7 @@ const MoviePage = () => {
   //Pagination
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  
+
   useEffect(() => {
     if (!data || !data.total_results) return;
     setPageCount(Math.ceil(data.total_results / itemsPerPage));
@@ -83,7 +83,7 @@ const MoviePage = () => {
             <MovieItem
               data={item}
               key={item.id}
-              imgClassName={"h-[200px]"}
+              imgClassName={"!h-[200px]"}
               className={"!mx-0"}></MovieItem>
           ))}
       </div>

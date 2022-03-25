@@ -2,7 +2,7 @@ import React from "react";
 
 const Item = ({ children, text, isActive }) => {
   return (
-    <div className="flex justify-between cursor-pointer transition-all p-1">
+    <div className="flex justify-between cursor-pointer transition-all py-1">
       <div className="flex gap-x-2 items-center">
         <div className={`${isActive ? "fill-primary" : "fill-textcolor"}`}>
           {children}

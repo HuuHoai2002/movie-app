@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-[#191A1F] font-body text-white pt-6 px-5 mx-auto;
+    @apply bg-[#191A1F] font-body text-white select-none pt-6 px-5 mx-auto;
   }
 }
 @layer components {

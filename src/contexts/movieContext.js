@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import React, { createContext, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const movieContext = createContext();
@@ -15,6 +15,7 @@ const MovieProvider = ({ children }) => {
     navigate(`/${path}/${movieID}`);
   };
   const fetcher = (url) => fetch(url).then((res) => res.json());
+
   const value = {
     apiKey,
     frameEmbed,
