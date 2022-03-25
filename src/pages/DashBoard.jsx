@@ -5,7 +5,7 @@ import Item from "../components/dashboard/Item";
 
 const DashBoard = () => {
   return (
-    <div className="fixed top-0 left-0 w-full max-w-[200px] h-screen pl-10 border-r border-[#24252A]">
+    <div className="fixed top-0 left-0 w-full max-w-[180px] h-screen pl-5 border-r border-[#24252A]">
       <h1 className="font-semibold mb-10 mt-5 flex gap-x-2 items-center">
         <div className="leading-none">
           <svg

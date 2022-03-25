@@ -6,10 +6,11 @@ const ButtonPrimary = ({
   className = "",
   buttonColor = "bg-primary",
   onClick,
+  onSpin = false,
 }) => {
   return (
     <button
-      className={`px-8 py-3 flex items-center gap-x-3 text-center rounded-xl text-white font-medium hover:opacity-80 transition-all ${buttonColor} ${className}`}
+      className={`group px-8 py-3 flex items-center justify-center gap-x-3 rounded-xl text-white font-medium hover:opacity-80 transition-all ${buttonColor} ${className} `}
       title={title || ""}
       onClick={onClick}
     >
@@ -17,7 +18,7 @@ const ButtonPrimary = ({
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"
-        className="w-5 h-5"
+        className={`w-5 h-5 ${onSpin ? "group-hover:animate-spin" : ""}`}
       >
         <path
           fill="#fff"

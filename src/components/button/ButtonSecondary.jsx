@@ -1,6 +1,6 @@
 import React from "react";
 
-const ButtonSecondary = ({ title, className }) => {
+const ButtonSecondary = ({ title, className, iconClassName }) => {
   return (
     <button
       className={`p-3 flex items-center justify-center bg-secondary rounded-xl hover:opacity-80 transition-all ${className}`}
@@ -8,7 +8,7 @@ const ButtonSecondary = ({ title, className }) => {
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6"
+        className={`h-6 w-6 ${iconClassName}`}
         viewBox="0 0 20 20"
         fill="currentColor"
       >

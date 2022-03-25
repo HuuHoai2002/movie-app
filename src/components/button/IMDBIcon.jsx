@@ -1,8 +1,10 @@
 import React from "react";
 
-const IMDBIcon = () => {
+const IMDBIcon = ({ className }) => {
   return (
-    <div className="py-1 px-2 leading-none font-bold text-base text-black bg-star rounded-md">
+    <div
+      className={`py-1 px-2 leading-none font-bold text-base text-black bg-star rounded-md ${className}`}
+    >
       IMDb
     </div>
   );

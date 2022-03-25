@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import BannerItem from "./BannerItem";
 import { useMovies } from "../../contexts/movieContext";
 import useSWR from "swr";
 import { SwiperSlide, Swiper } from "swiper/react";
+import MovieReview from "../movie/MovieReview";
+
 const Banner = () => {
   const { apiKey, handleNavigate, fetcher } = useMovies();
   const { data, error } = useSWR(
@@ -13,21 +15,29 @@ const Banner = () => {
   const loading = !data && !error;
   console.log(movies);
   return (
-    <Swiper
-      grabCursor={"true"}
-      className="rounded-3xl overflow-hidden page-container"
-      slidesPerView={"auto"}
-    >
-      {movies.length > 0 &&
-        movies.map((item) => (
-          <SwiperSlide key={item.id}>
-            <BannerItem
-              data={item}
-              onClick={() => handleNavigate("movie", item.id)}
-            ></BannerItem>
-          </SwiperSlide>
-        ))}
-    </Swiper>
+    <Fragment>
+      {/* <Heading heading={"Movies"}></Heading> */}
+      <Swiper
+        grabCursor={"true"}
+        className="rounded-3xl overflow-hidden page-container"
+        slidesPerView={"auto"}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+      >
+        {movies.length > 0 &&
+          movies.map((item) => (
+            <SwiperSlide key={item.id}>
+              <BannerItem
+                data={item}
+                onClick={() => handleNavigate("movie", item.id)}
+              ></BannerItem>
+            </SwiperSlide>
+          ))}
+      </Swiper>
+      <MovieReview></MovieReview>
+    </Fragment>
   );
 };
 

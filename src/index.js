@@ -6,6 +6,9 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { MovieProvider } from "./contexts/movieContext";
 import "swiper/scss";
+import SwiperCore, { Autoplay } from "swiper";
+SwiperCore.use([Autoplay]);
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

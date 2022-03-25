@@ -4,21 +4,23 @@ const ButtonCircle = ({
   title = "",
   className = "",
   changeType = false,
-  borderColor = "border-white",
+  state = true,
+  isNext,
   onClick,
 }) => {
   return (
     <button
-      className={`flex items-center justify-center p-3 border ${borderColor} rounded-full transition-all ${className}`}
+      className={`group flex items-center justify-center p-3 border ${
+        state ? "" : "border-borderLight"
+      } rounded-full transition-all ${className}`}
       title={title}
       onClick={onClick}
     >
       {changeType ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
+          className={` ${state ? "fill-textDark" : "fill-secondary"} w-5 h-5`}
           viewBox="0 0 20 20"
-          fill="currentColor"
         >
           <path
             fillRule="evenodd"
@@ -29,9 +31,8 @@ const ButtonCircle = ({
       ) : (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
+          className={` ${state ? "fill-textDark" : "fill-secondary"} w-5 h-5`}
           viewBox="0 0 20 20"
-          fill="currentColor"
         >
           <path
             fillRule="evenodd"

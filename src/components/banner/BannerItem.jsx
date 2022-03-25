@@ -6,7 +6,7 @@ import ButtonSecondary from "../button/ButtonSecondary";
 const BannerItem = ({ data, onClick }) => {
   const { imagesPath } = useMovies();
   return (
-    <div className="banner w-full h-[350px] relative select-none rounded-3xl overflow-hidden">
+    <div className="banner w-full h-[350px] relative select-none rounded-3xl overflow-hidden mb-5">
       <div className="overlay absolute inset-0  bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg"></div>
       <div className="w-full">
         <img
@@ -20,7 +20,9 @@ const BannerItem = ({ data, onClick }) => {
           {data.title}
         </h1>
         <div className="flex items-center gap-x-3">
-          <ButtonPrimary onClick={onClick}>Watch</ButtonPrimary>
+          <ButtonPrimary onClick={onClick} onSpin={true}>
+            Watch
+          </ButtonPrimary>
           <ButtonSecondary></ButtonSecondary>
         </div>
       </div>

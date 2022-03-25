@@ -7,14 +7,11 @@ const MovieDetails = () => {
   const { movieID } = useParams();
   const { frameEmbed } = useMovies();
   return (
-    <div>
-      <h1 className="text-center text-2xl text-primary">
-        ID Phim vừa ấn: {movieID}
-      </h1>
+    <div className="page-container-movie">
       <div>
         <iframe
           src={`https://www.2embed.ru/embed/tmdb/movie?id=${movieID}`}
-          className="w-full h-[600px]"
+          className="w-full h-[600px] object-cover rounded-3xl"
           frameborder="0"
         ></iframe>
       </div>
