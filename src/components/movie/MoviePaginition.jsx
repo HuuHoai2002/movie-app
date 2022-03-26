@@ -4,20 +4,25 @@ import useSWR from "swr";
 import { useMovies } from "../../contexts/movieContext";
 import MovieItem from "./MovieItem";
 
+//https://api.themoviedb.org/3/movie/{movie_id}/similar?api_key=26a7d8afe9f82facc441f01c4235b0a5&language=en-US&page=1
 const itemsPerPage = 20;
-const MoviePaginition = () => {
+const MoviePaginition = ({ type = "upcoming", similar = false }) => {
   const [nextPage, setNextPage] = useState(1);
   const { apiKey, fetcher } = useMovies();
 
   const [url, setUrl] = useState(
-    `https://api.themoviedb.org/3/movie/upcoming/?api_key=${apiKey}&page=${nextPage}`
+    `https://api.themoviedb.org/3/movie/${type}/${
+      similar ? "similar" : ""
+    }?api_key=${apiKey}&page=${nextPage}`
   );
-
+  // console.log(similar ? "Similar Id " + type : "");
   useEffect(() => {
     setUrl(
-      `https://api.themoviedb.org/3/movie/upcoming/?api_key=${apiKey}&page=${nextPage}`
+      `https://api.themoviedb.org/3/movie/${type}//${
+        similar ? "similar" : ""
+      }?api_key=${apiKey}&page=${nextPage}`
     );
-  }, [nextPage, apiKey]);
+  }, [nextPage, apiKey, type, similar]);
 
   //Detructoring dữ liệu trả về
   const { data, error } = useSWR(url, fetcher);

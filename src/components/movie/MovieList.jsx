@@ -46,4 +46,4 @@ const MovieList = ({ title, info = "top_rated" }) => {
   );
 };
 
-export default MovieList;
+export default React.memo(MovieList);

@@ -11,7 +11,8 @@ const MovieItem = ({ data, className = "", imgClassName }) => {
       <img
         src={`${imagesPath}${data.poster_path}`}
         alt=""
-        className={`${imgClassName} w-full h-[150px] rounded-lg object-cover`}
+        className={`${imgClassName} w-full h-[150px] rounded-lg object-cover cursor-pointer`}
+        onClick={() => handleNavigate("movie", data.id)}
       />
       <div className="flex flex-col flex-1 gap-2">
         <h3 className="text-white text-sm font-medium">{data.title}</h3>
@@ -21,7 +22,7 @@ const MovieItem = ({ data, className = "", imgClassName }) => {
           </span>
           <span className="flex items-center gap-x-3">
             <IMDBIcon className={"text-sm font-bold"}></IMDBIcon>
-            {data.vote_average || 0}
+            {data.vote_average.toFixed(1) || 0}
           </span>
         </div>
         <div className="mt-auto">
@@ -37,4 +38,4 @@ const MovieItem = ({ data, className = "", imgClassName }) => {
   );
 };
 
-export default MovieItem;
+export default React.memo(MovieItem);

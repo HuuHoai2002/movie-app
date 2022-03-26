@@ -13,7 +13,6 @@ const Banner = () => {
     fetcher
   );
   const movies = data?.results || [];
-  console.log(movies);
   return (
     <Fragment>
       {/* <Heading heading={"Movies"}></Heading> */}

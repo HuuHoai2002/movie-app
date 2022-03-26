@@ -6,6 +6,7 @@ import MovieDetails from "./pages/MovieDetails";
 import PageNotFound from "./pages/PageNotFound";
 import MoviePage from "./pages/MoviePage";
 import CommingSoonMovies from "./pages/CommingSoonMovies";
+import MovieWatching from "./pages/MovieWatching";
 
 const App = () => {
   return (
@@ -15,10 +16,13 @@ const App = () => {
           <Route path="/" element={<Main></Main>}></Route>
           <Route path="/movies" element={<MoviePage></MoviePage>}></Route>
           <Route
-            path="/watch/:movieID"
+            path="/movie/:movieID"
             element={<MovieDetails></MovieDetails>}></Route>
           <Route
-            path="/commingsoon"
+            path="/watch/:movieID"
+            element={<MovieWatching></MovieWatching>}></Route>
+          <Route
+            path="/comingsoon"
             element={<CommingSoonMovies></CommingSoonMovies>}></Route>
           <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
         </Route>

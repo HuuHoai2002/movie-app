@@ -1,9 +1,11 @@
 import React from "react";
 
-const RatingButton = ({ count }) => {
+const RatingButton = ({ count, className, title = "" }) => {
   return (
     <div className="px-2 py-1 inline-block rounded-3xl border border-primary">
-      <span className="text-sm flex items-center justify-center gap-x-2 text-primary leading-none">
+      <span
+        className={`${className} text-sm flex items-center justify-center gap-x-2 text-primary leading-none`}
+        title={title}>
         {count}
         <svg
           xmlns="http://www.w3.org/2000/svg"

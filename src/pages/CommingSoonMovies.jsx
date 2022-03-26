@@ -9,4 +9,4 @@ const CommingSoonMovies = () => {
   );
 };
 
-export default CommingSoonMovies;
+export default React.memo(CommingSoonMovies);

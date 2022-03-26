@@ -23,4 +23,4 @@ const MovieReviewItem = ({ data }) => {
   );
 };
 
-export default MovieReviewItem;
+export default React.memo(MovieReviewItem);

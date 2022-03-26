@@ -6,6 +6,9 @@
   body {
     @apply bg-[#191A1F] font-body text-white select-none pt-6 px-5 mx-auto;
   }
+  .font-poppins {
+    font-family: "Poppins", sans-serif;
+  }
 }
 @layer components {
   .page-container {
@@ -21,6 +24,13 @@
   .movie-list .swiper-slide {
     width: calc(calc(100%) / 4);
     height: auto;
+  }
+  .user-comments {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 .pagination {

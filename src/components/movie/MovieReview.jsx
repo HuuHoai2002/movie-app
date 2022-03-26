@@ -30,4 +30,4 @@ const MovieReview = ({ title, info = "popular" }) => {
   );
 };
 
-export default MovieReview;
+export default React.memo(MovieReview);
