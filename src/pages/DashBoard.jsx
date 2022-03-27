@@ -66,7 +66,7 @@ const DashBoard = () => {
         </NavLink>
         <NavLink to={"/comingsoon"}>
           {({ isActive }) => (
-            <Item text={"Comming Soon"} isActive={isActive}>
+            <Item text={"Coming Soon"} isActive={isActive}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"

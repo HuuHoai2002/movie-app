@@ -34,7 +34,7 @@ const Banner = () => {
             </SwiperSlide>
           ))}
       </Swiper>
-      <User></User>
+      <User isLogin={true}></User>
       <MovieReview title={"Popular Movies"} info="top_rated"></MovieReview>
     </Fragment>
   );

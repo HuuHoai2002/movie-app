@@ -2,11 +2,14 @@ import React, { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Main from "./pages/Main";
-import MovieDetails from "./pages/MovieDetails";
+import MovieDetails from "./pages/Movie/MovieDetails";
 import PageNotFound from "./pages/PageNotFound";
-import MoviePage from "./pages/MoviePage";
+import MoviePage from "./pages/Movie/MoviePage";
 import CommingSoonMovies from "./pages/CommingSoonMovies";
-import MovieWatching from "./pages/MovieWatching";
+import MovieWatching from "./pages/Movie/MovieWatching";
+import TiviSeries from "./pages/TvSeries/TiviSeries";
+import TiviSeriesDetails from "./pages/TvSeries/TiviSeriesDetails";
+import TiviSeriesWatching from "./pages/TvSeries/TiviSeriesWatching";
 
 const App = () => {
   return (
@@ -21,6 +24,13 @@ const App = () => {
           <Route
             path="/watch/:movieID"
             element={<MovieWatching></MovieWatching>}></Route>
+          <Route path="tvseries" element={<TiviSeries></TiviSeries>}></Route>
+          <Route
+            path="tvseri/:movieID"
+            element={<TiviSeriesDetails></TiviSeriesDetails>}></Route>
+          <Route
+            path="watchtv/:movieID/"
+            element={<TiviSeriesWatching></TiviSeriesWatching>}></Route>
           <Route
             path="/comingsoon"
             element={<CommingSoonMovies></CommingSoonMovies>}></Route>

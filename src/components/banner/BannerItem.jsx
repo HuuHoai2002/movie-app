@@ -4,10 +4,12 @@ import ButtonPrimary from "../button/ButtonPrimary";
 import ButtonSecondary from "../button/ButtonSecondary";
 
 const BannerItem = ({ data, onClick }) => {
-  const { imagesPath } = useMovies();
+  const { imagesPath, handleNavigate } = useMovies();
   return (
     <div className="banner w-full h-[350px] relative select-none rounded-3xl overflow-hidden mb-5">
-      <div className="overlay absolute inset-0  bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg"></div>
+      <div
+        className="overlay absolute inset-0  bg-gradient-to-t from-[rgba(0,0,0,0.3)] to-[rgba(0,0,0,0.2)] rounded-lg"
+        onClick={() => handleNavigate("movie", data.id)}></div>
       <div className="w-full">
         <img
           src={`${imagesPath}${data.backdrop_path}`}
