@@ -2,8 +2,9 @@ import React from "react";
 import useSWR from "swr";
 import { useMovies } from "../../contexts/movieContext";
 import MovieItem from "./MovieItem";
-import { SwiperSlide, Swiper, useSwiper } from "swiper/react";
+import { SwiperSlide, Swiper } from "swiper/react";
 import ButtonCircle from "../button/ButtonCircle";
+import Loading from "../loading/Loading";
 
 const MovieList = ({ title, info = "top_rated" }) => {
   const { apiKey, fetcher } = useMovies();
@@ -11,11 +12,12 @@ const MovieList = ({ title, info = "top_rated" }) => {
     `https://api.themoviedb.org/3/movie/${info}?api_key=${apiKey}`,
     fetcher
   );
-
+  const loading = !data && !error;
   const movies = data?.results || [];
   const swiperRef = React.useRef(null);
   return (
     <div className="movie-list">
+      {loading && <Loading></Loading>}
       <div className="flex items-center justify-between">
         <h1 className="font-medium text-xl mb-5">{title}</h1>
         <div className="flex items-center gap-x-2">

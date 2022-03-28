@@ -42,6 +42,9 @@ const TiviPaginition = ({ movieID, info = "" }) => {
   return (
     <Fragment>
       <div className="grid grid-cols-4 gap-5">
+        {loading && (
+          <div className="w-5 h-5 flex items-center justify-center border-2 rounded-full border-primary border-t-transparent transition-all animate-spin"></div>
+        )}
         {!loading &&
           movies.length > 0 &&
           movies.map((item) => (
@@ -52,9 +55,6 @@ const TiviPaginition = ({ movieID, info = "" }) => {
               className={"!mx-0"}></TiviSeriesItem>
           ))}
       </div>
-      {loading && (
-        <div className="w-5 h-5 flex items-center justify-center border-2 rounded-full border-primary border-t-transparent transition-all animate-spin"></div>
-      )}
       <div className="mt-5 mb-2">
         <ReactPaginate
           breakLabel="..."

@@ -7,10 +7,10 @@ import ReactPaginate from "react-paginate";
 
 const itemsPerPage = 20;
 
-const TiviSiries = () => {
+const TiviSiriesPage = () => {
   const [values, setValues] = useState("");
   const [nextPage, setNextPage] = useState(1);
-  const { apiKey, fetcher } = useMovies();
+  const { apiKey, fetcher, inputRef } = useMovies();
   const [url, setUrl] = useState(
     `https://api.themoviedb.org/3/tv/top_rated/?api_key=${apiKey}&page=${nextPage}`
   );
@@ -21,6 +21,7 @@ const TiviSiries = () => {
   }, 500);
 
   useEffect(() => {
+    inputRef.current.focus();
     if (values) {
       setUrl(`${searchTvSeriesPath}${values}&${nextPage}`);
     } else {
@@ -57,6 +58,7 @@ const TiviSiries = () => {
           className="p-3 rounded-lg bg-secondary w-full outline-none"
           placeholder="What TV series are you looking for?"
           onChange={handleSetValues}
+          ref={inputRef}
         />
         <button className="py-3 px-4 rounded-lg bg-primary font-semibold flex items-center gap-x-2">
           <svg
@@ -103,4 +105,4 @@ const TiviSiries = () => {
   );
 };
 
-export default TiviSiries;
+export default TiviSiriesPage;

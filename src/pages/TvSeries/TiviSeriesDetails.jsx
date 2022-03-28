@@ -1,10 +1,11 @@
 import React from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useSWR from "swr";
 import ButtonPrimary from "../../components/button/ButtonPrimary";
 import RatingButton from "../../components/button/RatingButton";
 import ButtonHeart from "../../components/button/ButtonHeart";
 import { useMovies } from "../../contexts/movieContext";
+import Loading from "../../components/loading/Loading";
 
 // movie details : https://api.themoviedb.org/3/movie/{movie_id}?api_key=
 // credits : https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=
@@ -18,6 +19,7 @@ const TiviSeriesDetails = () => {
     `https://api.themoviedb.org/3/tv/${movieID}?api_key=${apiKey}`,
     fetcher
   );
+  const loading = !data && !error;
   const movies = data || [];
   const {
     name,
@@ -36,15 +38,16 @@ const TiviSeriesDetails = () => {
   const { cast } = moviesCredit;
   console.log(moviesCredit);
   // Reviews
-  const { data: dataReviews, error: errorReviews } = useSWR(
-    `https://api.themoviedb.org/3/tv/${movieID}/reviews?api_key=${apiKey}`,
-    fetcher
-  );
-  const moviesReview = dataReviews || [];
-  const { results } = moviesReview;
+  // const { data: dataReviews, error: errorReviews } = useSWR(
+  //   `https://api.themoviedb.org/3/tv/${movieID}/reviews?api_key=${apiKey}`,
+  //   fetcher
+  // );
+  // const moviesReview = dataReviews || [];
+  // const { results } = moviesReview;
   // console.log(results);
   return (
     <div className="page-container-movie font-poppins">
+      {loading && <Loading></Loading>}
       {/* Movie details , actors */}
       <div className="flex gap-x-10 mb-10">
         <div className="max-w-[450px] flex-1">
@@ -89,7 +92,7 @@ const TiviSeriesDetails = () => {
               className={"max-w-[250px] !rounded-3xl mt-auto"}
               title={"Watch Now"}
               onClick={() => handleNavigate("watchtv", movieID)}>
-              Watch Tivi Series
+              Watch TV Series
             </ButtonPrimary>
             <ButtonHeart
               className={"!border-2 border-[#FF6767]"}

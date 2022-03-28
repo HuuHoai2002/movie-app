@@ -10,7 +10,7 @@ const itemsPerPage = 20;
 const MoviePage = () => {
   const [values, setValues] = useState("");
   const [nextPage, setNextPage] = useState(1);
-  const { apiKey, fetcher } = useMovies();
+  const { apiKey, fetcher, inputRef } = useMovies();
   const [url, setUrl] = useState(
     `https://api.themoviedb.org/3/movie/popular/?api_key=${apiKey}&page=${nextPage}`
   );
@@ -19,8 +19,8 @@ const MoviePage = () => {
   const handleSetValues = debounce((e) => {
     setValues(e.target.value);
   }, 500);
-
   useEffect(() => {
+    inputRef.current.focus();
     if (values) {
       setUrl(`${searchMoviePath}${values}&${nextPage}`);
     } else {
@@ -28,7 +28,7 @@ const MoviePage = () => {
         `https://api.themoviedb.org/3/movie/popular/?api_key=${apiKey}&page=${nextPage}`
       );
     }
-  }, [values, nextPage, searchMoviePath, apiKey]);
+  }, [values, nextPage, searchMoviePath, apiKey, inputRef]);
 
   //Detructoring dữ liệu trả về
   const { data, error } = useSWR(url, fetcher);
@@ -57,6 +57,7 @@ const MoviePage = () => {
           className="p-3 rounded-lg bg-secondary w-full outline-none"
           placeholder="What are you looking for today?"
           onChange={handleSetValues}
+          ref={inputRef}
         />
         <button className="py-3 px-4 rounded-lg bg-primary font-semibold flex items-center gap-x-2">
           <svg

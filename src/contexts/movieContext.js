@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const movieContext = createContext();
@@ -12,6 +12,7 @@ const MovieProvider = ({ children }) => {
     "https://api.themoviedb.org/3/search/movie?api_key=26a7d8afe9f82facc441f01c4235b0a5&query=";
   const searchTvSeriesPath =
     "https://api.themoviedb.org/3/search/tv?api_key=26a7d8afe9f82facc441f01c4235b0a5&query=";
+
   const navigate = useNavigate();
   const handleNavigate = (path, movieID) => {
     navigate(`/${path}${movieID ? "/" + movieID : ""}`);
@@ -19,10 +20,15 @@ const MovieProvider = ({ children }) => {
   const handleNavigateTV = (path, movieID, Episode) => {
     navigate(`/${path}/${movieID}/${Episode}`);
   };
+
   const fetcher = (url) => fetch(url).then((res) => res.json());
+
   const handleSetTitle = (title) => {
     document.title = title;
   };
+
+  const inputRef = useRef();
+
   const value = {
     apiKey,
     frameEmbed,
@@ -34,6 +40,7 @@ const MovieProvider = ({ children }) => {
     searchMoviePath,
     searchTvSeriesPath,
     handleSetTitle,
+    inputRef,
   };
   return (
     <movieContext.Provider value={value}>{children}</movieContext.Provider>

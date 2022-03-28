@@ -7,7 +7,7 @@ import PageNotFound from "./pages/PageNotFound";
 import MoviePage from "./pages/Movie/MoviePage";
 import CommingSoonMovies from "./pages/CommingSoonMovies";
 import MovieWatching from "./pages/Movie/MovieWatching";
-import TiviSeries from "./pages/TvSeries/TiviSeries";
+import TiviSeriesPage from "./pages/TvSeries/TiviSeriesPage";
 import TiviSeriesDetails from "./pages/TvSeries/TiviSeriesDetails";
 import TiviSeriesWatching from "./pages/TvSeries/TiviSeriesWatching";
 
@@ -24,7 +24,7 @@ const App = () => {
           <Route
             path="/watch/:movieID"
             element={<MovieWatching></MovieWatching>}></Route>
-          <Route path="tvseries" element={<TiviSeries></TiviSeries>}></Route>
+          <Route path="tvseries" element={<TiviSeriesPage></TiviSeriesPage>}></Route>
           <Route
             path="tvseri/:movieID"
             element={<TiviSeriesDetails></TiviSeriesDetails>}></Route>

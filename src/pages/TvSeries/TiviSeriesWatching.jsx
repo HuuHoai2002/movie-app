@@ -22,14 +22,14 @@ const TiviSeriesWatching = () => {
   const movies = data || [];
   const loading = !data && !error;
   const { name, number_of_episodes, first_air_date } = movies;
-  console.log(movies);
   handleSetTitle("Watching: " + name || "No");
   return (
     <div className="page-container-movie">
       <h1 className="text-textcolor font-semibold pb-2">
         Playing: {name} ({new Date(first_air_date).getFullYear()}) ,{" "}
         <span className="pl-5">
-          Episode: {episode}/{number_of_episodes}
+          Episode: <span className="text-primary opacity-80">{episode}</span>/
+          <span>{number_of_episodes}</span>
         </span>
       </h1>
       {loading ? (
@@ -53,7 +53,7 @@ const TiviSeriesWatching = () => {
           </p>
         ))}
       </div>
-      {/* Nếu xem gần hết phim thì mới gợi ý */}
+      {/* Xem gần hết phim thì mới gợi ý */}
       {episode === number_of_episodes ? (
         <div className="w-full">
           <h1 className="text-xl font-medium mb-5">Similar TV Series</h1>

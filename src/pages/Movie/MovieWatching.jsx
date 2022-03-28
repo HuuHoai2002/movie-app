@@ -26,7 +26,8 @@ const MovieWatching = () => {
         <iframe
           src={`${frameEmbed}${movieID}`}
           className="w-full h-[600px] object-cover rounded-3xl"
-          frameBorder="0"></iframe>
+          frameBorder="0"
+          allowFullScreen={true}></iframe>
       </div>
       <div className="w-full">
         <h1 className="text-xl font-medium mb-5">Similar Movies</h1>

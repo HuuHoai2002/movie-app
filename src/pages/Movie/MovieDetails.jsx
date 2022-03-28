@@ -4,9 +4,9 @@ import useSWR from "swr";
 import ButtonPrimary from "../../components/button/ButtonPrimary";
 import RatingButton from "../../components/button/RatingButton";
 import ButtonHeart from "../../components/button/ButtonHeart";
-import MoviePaginition from "../../components/movie/MoviePaginition";
 import UserComments from "../../components/user/UserComments";
 import { useMovies } from "../../contexts/movieContext";
+import Loading from "../../components/loading/Loading";
 
 // movie details : https://api.themoviedb.org/3/movie/{movie_id}?api_key=
 // credits : https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=
@@ -21,6 +21,7 @@ const MovieDetails = () => {
     fetcher
   );
   const movies = data || [];
+  const loading = !data && !error;
   const { title, backdrop_path, genres, overview, vote_average } = movies;
   //Credits
   const { data: dataCredits, error: errorCredits } = useSWR(
@@ -40,6 +41,7 @@ const MovieDetails = () => {
   // console.log(results);
   return (
     <div className="page-container-movie font-poppins">
+      {loading && <Loading></Loading>}
       {/* Movie details , actors */}
       <div className="flex gap-x-10 mb-10">
         <div className="max-w-[450px] flex-1">
@@ -118,8 +120,6 @@ const MovieDetails = () => {
           <span className="text-textcolor">This movie has no reviews yet</span>
         )}
       </div>
-      {/* Similar */}
-      
     </div>
   );
 };
