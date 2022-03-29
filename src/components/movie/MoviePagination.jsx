@@ -2,11 +2,12 @@ import React, { useState, useEffect, Fragment } from "react";
 import ReactPaginate from "react-paginate";
 import useSWR from "swr";
 import { useMovies } from "../../contexts/movieContext";
+import MoviePageLoading from "../loading/MoviePageLoading";
 import MovieItem from "./MovieItem";
 
 //https://api.themoviedb.org/3/movie/{movie_id}/similar?api_key=26a7d8afe9f82facc441f01c4235b0a5&language=en-US&page=1
 const itemsPerPage = 20;
-const MoviePaginition = ({ movieID, info = "" }) => {
+const MoviePagination = ({ movieID, info = "" }) => {
   const [nextPage, setNextPage] = useState(1);
   const { apiKey, fetcher } = useMovies();
 
@@ -42,7 +43,9 @@ const MoviePaginition = ({ movieID, info = "" }) => {
   return (
     <Fragment>
       <div className="grid grid-cols-4 gap-5">
-        {!loading &&
+        {loading ? (
+          <MoviePageLoading></MoviePageLoading>
+        ) : (
           movies.length > 0 &&
           movies.map((item) => (
             <MovieItem
@@ -50,11 +53,9 @@ const MoviePaginition = ({ movieID, info = "" }) => {
               key={item.id}
               imgClassName={"!h-[200px]"}
               className={"!mx-0"}></MovieItem>
-          ))}
+          ))
+        )}
       </div>
-      {loading && (
-        <div className="w-5 h-5 flex items-center justify-center border-2 rounded-full border-primary border-t-transparent transition-all animate-spin"></div>
-      )}
       <div className="mt-5 mb-2">
         <ReactPaginate
           breakLabel="..."
@@ -71,4 +72,4 @@ const MoviePaginition = ({ movieID, info = "" }) => {
   );
 };
 
-export default React.memo(MoviePaginition);
+export default React.memo(MoviePagination);

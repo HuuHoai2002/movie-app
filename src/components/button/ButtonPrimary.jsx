@@ -11,7 +11,7 @@ const ButtonPrimary = ({
 }) => {
   return (
     <button
-      className={`group px-8 py-3 flex items-center justify-center gap-x-3 rounded-xl text-white font-medium hover:opacity-80 transition-all ${buttonColor} ${className} `}
+      className={`group px-8 py-[9px] flex items-center justify-center gap-x-3 rounded-xl text-white font-medium hover:opacity-80 transition-all ${buttonColor} ${className} `}
       title={title || ""}
       onClick={onClick}>
       {children}

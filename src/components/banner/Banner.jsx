@@ -5,6 +5,7 @@ import useSWR from "swr";
 import { SwiperSlide, Swiper } from "swiper/react";
 import MovieReview from "../movie/MovieReview";
 import User from "../user/User";
+import BannerLoading from "../loading/BannerLoading";
 
 const Banner = () => {
   const { apiKey, handleNavigate, fetcher, swiperRef } = useMovies();
@@ -13,6 +14,7 @@ const Banner = () => {
     fetcher
   );
   const movies = data?.results || [];
+  const loading = !data && !error;
   return (
     <Fragment>
       {/* <Heading heading={"Movies"}></Heading> */}
@@ -25,14 +27,17 @@ const Banner = () => {
           delay: 5000,
           disableOnInteraction: false,
         }}>
-        {movies.length > 0 &&
+        {loading ? (
+          <BannerLoading></BannerLoading>
+        ) : (
           movies.map((item) => (
             <SwiperSlide key={item.id}>
               <BannerItem
                 data={item}
                 onClick={() => handleNavigate("watch", item.id)}></BannerItem>
             </SwiperSlide>
-          ))}
+          ))
+        )}
       </Swiper>
       <User isLogin={true}></User>
       <MovieReview title={"Popular Movies"} info="top_rated"></MovieReview>

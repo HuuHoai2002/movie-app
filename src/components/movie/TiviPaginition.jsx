@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import ReactPaginate from "react-paginate";
 import useSWR from "swr";
 import { useMovies } from "../../contexts/movieContext";
+import MoviePageLoading from "../loading/MoviePageLoading";
 import TiviSeriesItem from "./TiviSeriesItem";
 
 //https://api.themoviedb.org/3/movie/{movie_id}/similar?api_key=26a7d8afe9f82facc441f01c4235b0a5&language=en-US&page=1
@@ -42,10 +43,9 @@ const TiviPaginition = ({ movieID, info = "" }) => {
   return (
     <Fragment>
       <div className="grid grid-cols-4 gap-5">
-        {loading && (
-          <div className="w-5 h-5 flex items-center justify-center border-2 rounded-full border-primary border-t-transparent transition-all animate-spin"></div>
-        )}
-        {!loading &&
+        {loading ? (
+          <MoviePageLoading></MoviePageLoading>
+        ) : (
           movies.length > 0 &&
           movies.map((item) => (
             <TiviSeriesItem
@@ -53,7 +53,8 @@ const TiviPaginition = ({ movieID, info = "" }) => {
               key={item.id}
               imgClassName={"!h-[200px]"}
               className={"!mx-0"}></TiviSeriesItem>
-          ))}
+          ))
+        )}
       </div>
       <div className="mt-5 mb-2">
         <ReactPaginate

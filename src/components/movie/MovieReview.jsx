@@ -3,6 +3,7 @@ import useSWR from "swr";
 import { useMovies } from "../../contexts/movieContext";
 import ButtonPrimary from "../button/ButtonPrimary";
 import MovieReviewItem from "./MovieReviewItem";
+import Loading from "../loading/Loading";
 
 const MovieReview = ({ title, info = "popular" }) => {
   const { apiKey, fetcher, handleNavigate } = useMovies();
@@ -10,9 +11,11 @@ const MovieReview = ({ title, info = "popular" }) => {
     `https://api.themoviedb.org/3/movie/${info}?api_key=${apiKey}&page=2`,
     fetcher
   );
+  const loading = !data && !error;
   const movies = data?.results || [];
   return (
     <div className="page-container-review w-full fixed bottom-0 right-0 z-10 p-5 border-l border-[#24252A]">
+      {loading && <Loading></Loading>}
       <h1 className="font-medium mb-5">{title}</h1>
       {movies.length > 0 &&
         movies

@@ -4,7 +4,7 @@ import { useMovies } from "../../contexts/movieContext";
 import MovieItem from "./MovieItem";
 import { SwiperSlide, Swiper } from "swiper/react";
 import ButtonCircle from "../button/ButtonCircle";
-import Loading from "../loading/Loading";
+import MovieLoading from "./MovieLoading";
 
 const MovieList = ({ title, info = "top_rated" }) => {
   const { apiKey, fetcher } = useMovies();
@@ -17,7 +17,6 @@ const MovieList = ({ title, info = "top_rated" }) => {
   const swiperRef = React.useRef(null);
   return (
     <div className="movie-list">
-      {loading && <Loading></Loading>}
       <div className="flex items-center justify-between">
         <h1 className="font-medium text-xl mb-5">{title}</h1>
         <div className="flex items-center gap-x-2">
@@ -37,12 +36,16 @@ const MovieList = ({ title, info = "top_rated" }) => {
         navigation={true}
         ref={swiperRef}
         className="rounded-lg">
-        {movies.length > 0 &&
+        {loading ? (
+          <MovieLoading></MovieLoading>
+        ) : (
+          movies.length > 0 &&
           movies.map((item) => (
             <SwiperSlide key={item.id}>
               <MovieItem data={item}></MovieItem>
             </SwiperSlide>
-          ))}
+          ))
+        )}
       </Swiper>
     </div>
   );

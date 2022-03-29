@@ -1,10 +1,10 @@
 import React from "react";
-import MoviePaginition from "../components/movie/MoviePaginition";
+import MoviePagination from "../components/movie/MoviePagination";
 
 const CommingSoonMovies = () => {
   return (
     <div className="page-container-movie">
-      <MoviePaginition movieID={"upcoming"}></MoviePaginition>
+      <MoviePagination movieID={"upcoming"}></MoviePagination>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import TiviSeriesItem from "../../components/movie/TiviSeriesItem";
 import { useMovies } from "../../contexts/movieContext";
 import { debounce } from "lodash";
 import ReactPaginate from "react-paginate";
+import MoviePageLoading from "../../components/loading/MoviePageLoading";
 
 const itemsPerPage = 20;
 
@@ -29,7 +30,7 @@ const TiviSiriesPage = () => {
         `https://api.themoviedb.org/3/tv/top_rated/?api_key=${apiKey}&page=${nextPage}`
       );
     }
-  }, [values, nextPage, searchTvSeriesPath, apiKey]);
+  }, [values, nextPage, searchTvSeriesPath, apiKey, inputRef]);
 
   //Detructoring dữ liệu trả về
   const { data, error } = useSWR(url, fetcher);
@@ -75,11 +76,10 @@ const TiviSiriesPage = () => {
           Search
         </button>
       </div>
-      {loading && (
-        <div className="w-5 h-5 flex items-center justify-center border-2 rounded-full border-primary border-t-transparent transition-all animate-spin"></div>
-      )}
       <div className="grid grid-cols-4 gap-5">
-        {!loading &&
+        {loading ? (
+          <MoviePageLoading></MoviePageLoading>
+        ) : (
           movies.length > 0 &&
           movies.map((item) => (
             <TiviSeriesItem
@@ -87,7 +87,8 @@ const TiviSiriesPage = () => {
               key={item.id}
               imgClassName={"!h-[200px]"}
               className={"!mx-0"}></TiviSeriesItem>
-          ))}
+          ))
+        )}
       </div>
       <div className="mt-5 mb-2">
         <ReactPaginate

@@ -22,7 +22,7 @@ const BannerItem = ({ data, onClick }) => {
           {data.title}
         </h1>
         <div className="flex items-center gap-x-3">
-          <ButtonPrimary onClick={onClick} onSpin={true}>
+          <ButtonPrimary onClick={onClick} onSpin={true} className="!py-3">
             Watch
           </ButtonPrimary>
           <ButtonSecondary></ButtonSecondary>

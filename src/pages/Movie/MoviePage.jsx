@@ -4,6 +4,7 @@ import MovieItem from "../../components/movie/MovieItem";
 import { useMovies } from "../../contexts/movieContext";
 import { debounce } from "lodash";
 import ReactPaginate from "react-paginate";
+import MoviePageLoading from "../../components/loading/MoviePageLoading";
 
 const itemsPerPage = 20;
 
@@ -74,11 +75,10 @@ const MoviePage = () => {
           Search
         </button>
       </div>
-      {loading && (
-        <div className="w-5 h-5 flex items-center justify-center border-2 rounded-full border-primary border-t-transparent transition-all animate-spin"></div>
-      )}
       <div className="grid grid-cols-4 gap-5">
-        {!loading &&
+        {loading ? (
+          <MoviePageLoading></MoviePageLoading>
+        ) : (
           movies.length > 0 &&
           movies.map((item) => (
             <MovieItem
@@ -86,7 +86,8 @@ const MoviePage = () => {
               key={item.id}
               imgClassName={"!h-[200px]"}
               className={"!mx-0"}></MovieItem>
-          ))}
+          ))
+        )}
       </div>
       <div className="mt-5 mb-2">
         <ReactPaginate
