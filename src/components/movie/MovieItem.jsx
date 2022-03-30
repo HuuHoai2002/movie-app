@@ -3,7 +3,7 @@ import { useMovies } from "../../contexts/movieContext";
 import ButtonPrimary from "../button/ButtonPrimary";
 import IMDBIcon from "../button/IMDBIcon";
 
-const MovieItem = ({ data, className = "", imgClassName }) => {
+const MovieItem = ({ data, className = "", imgClassName, gapButton = "" }) => {
   const { handleNavigate, imagesPath } = useMovies();
   return (
     <div
@@ -14,9 +14,10 @@ const MovieItem = ({ data, className = "", imgClassName }) => {
         className={`${imgClassName} w-full h-[150px] rounded-lg object-cover cursor-pointer`}
         onClick={() => handleNavigate("movie", data.id)}
       />
-      <div className="flex flex-col flex-1 gap-2">
+      <div className="flex flex-col flex-1 gap-3">
         <h3 className="text-white text-sm font-medium">{data.title}</h3>
-        <div className="flex items-center justify-between text-white text-sm">
+        <div
+          className={`flex items-center justify-between text-white text-sm ${gapButton}`}>
           <span className="opacity-50">
             {new Date(data.release_date).getFullYear() || "No"}
           </span>

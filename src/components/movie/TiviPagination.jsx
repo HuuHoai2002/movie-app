@@ -7,7 +7,7 @@ import TiviSeriesItem from "./TiviSeriesItem";
 
 //https://api.themoviedb.org/3/movie/{movie_id}/similar?api_key=26a7d8afe9f82facc441f01c4235b0a5&language=en-US&page=1
 const itemsPerPage = 20;
-const TiviPaginition = ({ movieID, info = "" }) => {
+const TiviPagination = ({ movieID, info = "" }) => {
   const [nextPage, setNextPage] = useState(1);
   const { apiKey, fetcher } = useMovies();
 
@@ -72,4 +72,4 @@ const TiviPaginition = ({ movieID, info = "" }) => {
   );
 };
 
-export default React.memo(TiviPaginition);
+export default React.memo(TiviPagination);

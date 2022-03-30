@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import useSWR from "swr";
 import WatchTvFrame from "../../components/watch/WatchTvFrame";
 import { useMovies } from "../../contexts/movieContext";
-import MoviePagination from "../../components/movie/MoviePagination";
+import TiviPagination from "../../components/movie/TiviPagination";
 import MovieWatchingLoading from "../../components/loading/MovieWatchingLoading";
 
 const TiviSeriesWatching = () => {
@@ -45,7 +45,7 @@ const TiviSeriesWatching = () => {
               <p
                 className="w-[60px] h-7 mb-2 flex items-center justify-center font-semibold text-sm rounded-2xl border border-primary cursor-pointer leading-none hover:opacity-50"
                 style={index === active ? { backgroundColor: "#D22F27" } : {}}
-                key={index}
+                key={index + item}
                 title={`Watch Episode ${index + 1}`}
                 onClick={() => {
                   setEpisode(index + 1);
@@ -58,9 +58,7 @@ const TiviSeriesWatching = () => {
           {episode === number_of_episodes ? (
             <div className="w-full">
               <h1 className="text-xl font-medium mb-5">Similar TV Series</h1>
-              <MoviePagination
-                movieID={movieID}
-                info="similar"></MoviePagination>
+              <TiviPagination movieID={movieID} info="similar"></TiviPagination>
             </div>
           ) : (
             ""

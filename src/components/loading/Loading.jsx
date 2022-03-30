@@ -1,9 +1,11 @@
 import React from "react";
+import "./Loading.scss";
+import { createPortal } from "react-dom";
 
-const Loading = ({ className }) => {
-  return (
-    <div
-      className={`w-5 h-5 flex items-center justify-center border-2 rounded-full border-primary border-t-transparent transition-all animate-spin ${className}`}></div>
+const Loading = () => {
+  return createPortal(
+    <div className="dashed-loading top-[50%] left-[50%] -translate-x-2/4 -translate-y-2/4 transition-all"></div>,
+    document.getElementById("root")
   );
 };
 

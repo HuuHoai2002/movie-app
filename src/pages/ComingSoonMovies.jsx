@@ -1,7 +1,7 @@
 import React from "react";
 import MoviePagination from "../components/movie/MoviePagination";
 
-const CommingSoonMovies = () => {
+const ComingSoonMovies = () => {
   return (
     <div className="page-container-movie">
       <MoviePagination movieID={"upcoming"}></MoviePagination>
@@ -9,4 +9,4 @@ const CommingSoonMovies = () => {
   );
 };
 
-export default React.memo(CommingSoonMovies);
+export default React.memo(ComingSoonMovies);

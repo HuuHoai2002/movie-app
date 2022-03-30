@@ -52,6 +52,7 @@ const MoviePagination = ({ movieID, info = "" }) => {
               data={item}
               key={item.id}
               imgClassName={"!h-[200px]"}
+              gapButton="mb-2"
               className={"!mx-0"}></MovieItem>
           ))
         )}

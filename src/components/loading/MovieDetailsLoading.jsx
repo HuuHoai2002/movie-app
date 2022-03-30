@@ -18,7 +18,7 @@ const MovieDetailsLoading = () => {
             </h1>
             <LoadingSkeleton width="40px" height="30px"></LoadingSkeleton>
           </div>
-          <div className="leading-6 text-white text-sm opacity-80 flex flex-col gap-y-2 h-5">
+          <div className="leading-6 text-white text-sm opacity-80 flex flex-col gap-y-2">
             <LoadingSkeleton height="20px"></LoadingSkeleton>
             <LoadingSkeleton height="20px"></LoadingSkeleton>
             <LoadingSkeleton height="20px"></LoadingSkeleton>
@@ -27,7 +27,7 @@ const MovieDetailsLoading = () => {
           </div>
           <div className="">
             <h1 className="text-xl font-medium mb-5">
-              <LoadingSkeleton width="50px" height="30px"></LoadingSkeleton>
+              <LoadingSkeleton width="90px" height="25px"></LoadingSkeleton>
             </h1>
             <div className="flex items-center gap-x-10 text-white opacity-80">
               <LoadingSkeleton width="70px" height="30px"></LoadingSkeleton>
@@ -37,7 +37,7 @@ const MovieDetailsLoading = () => {
             </div>
           </div>
           <div className="flex items-center gap-x-5">
-            <LoadingSkeleton width="250px" height="40px"></LoadingSkeleton>
+            <LoadingSkeleton width="250px" height="40px" radius="24px"></LoadingSkeleton>
             <LoadingSkeleton
               width="40px"
               height="40px"
