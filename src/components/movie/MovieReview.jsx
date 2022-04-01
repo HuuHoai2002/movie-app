@@ -14,7 +14,7 @@ const MovieReview = ({ title, info = "popular" }) => {
   const loading = !data && !error;
   const movies = data?.results || [];
   return (
-    <div className="page-container-review w-full fixed bottom-0 right-0 z-10 p-5 border-l border-[#24252A]">
+    <div className="page-container-review w-full z-10 p-5 border-l border-[#24252A]">
       {loading && <Loading></Loading>}
       <h1 className="font-medium mb-5">{title}</h1>
       {movies.length > 0 &&

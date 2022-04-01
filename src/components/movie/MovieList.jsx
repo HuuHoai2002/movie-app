@@ -7,7 +7,7 @@ import ButtonCircle from "../button/ButtonCircle";
 import MovieLoading from "./MovieLoading";
 
 const MovieList = ({ title, info = "top_rated" }) => {
-  const { apiKey, fetcher } = useMovies();
+  const { apiKey, fetcher, addToCart } = useMovies();
   const { data, error } = useSWR(
     `https://api.themoviedb.org/3/movie/${info}?api_key=${apiKey}`,
     fetcher
@@ -42,7 +42,9 @@ const MovieList = ({ title, info = "top_rated" }) => {
           movies.length > 0 &&
           movies.map((item) => (
             <SwiperSlide key={item.id}>
-              <MovieItem data={item}></MovieItem>
+              <MovieItem
+                data={item}
+                onClick={() => addToCart(item)}></MovieItem>
             </SwiperSlide>
           ))
         )}

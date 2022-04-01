@@ -1,5 +1,7 @@
-import React, { createContext, useContext, useRef } from "react";
+import React, { createContext, useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const movieContext = createContext();
 
@@ -29,6 +31,38 @@ const MovieProvider = ({ children }) => {
 
   const inputRef = useRef();
 
+  const [onDark, setOnDark] = useState(false);
+  const handleSetDarkMode = () => {
+    setOnDark(!onDark);
+  };
+  // Store Movies
+  const [storedValue, setValue] = useLocalStorage("movie", 0);
+  const [cartMovie, setCartMovie] = useState(storedValue || []);
+  const showToastError = () =>
+    toast.warning("The movie already exists in the shopping cart");
+  const showToastAddSuccess = () => toast.success("Add to cart successfully");
+  //ADD
+  const addToCart = (data) => {
+    const newCart = [...cartMovie];
+    const filter = newCart.some((item) => item.id === data.id);
+    if (!filter) {
+      newCart.push(data);
+      setValue(newCart);
+      setCartMovie(newCart);
+      showToastAddSuccess();
+    } else {
+      showToastError();
+    }
+  };
+  const showToastDeleteSuccess = () =>
+    toast.success("You just removed a movie from your cart");
+  //DELETE
+  const deleteFromCart = (movieID) => {
+    const newCart = cartMovie.filter((item) => item.id !== movieID);
+    setValue(newCart);
+    setCartMovie(newCart);
+    showToastDeleteSuccess();
+  };
   const value = {
     apiKey,
     frameEmbed,
@@ -41,6 +75,11 @@ const MovieProvider = ({ children }) => {
     searchTvSeriesPath,
     handleSetTitle,
     inputRef,
+    onDark,
+    handleSetDarkMode,
+    cartMovie,
+    addToCart,
+    deleteFromCart,
   };
   return (
     <movieContext.Provider value={value}>{children}</movieContext.Provider>

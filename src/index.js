@@ -6,6 +6,8 @@ import { MovieProvider } from "./contexts/movieContext";
 import "swiper/css";
 import SwiperCore, { Autoplay } from "swiper";
 import Loading from "./components/loading/Loading";
+import "react-toastify/dist/ReactToastify.css";
+
 SwiperCore.use([Autoplay]);
 
 const LoadAPP = React.lazy(() => {

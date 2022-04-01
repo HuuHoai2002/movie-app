@@ -38,7 +38,7 @@ const MovieWatching = () => {
           <div className="w-full">
             <h1 className="text-xl font-medium mb-5">Similar Movies</h1>
             <MoviePagination movieID={movieID} info="similar"></MoviePagination>
-          </div>
+            </div>
         </Fragment>
       )}
     </div>

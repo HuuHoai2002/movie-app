@@ -11,7 +11,7 @@ const itemsPerPage = 20;
 const MoviePage = () => {
   const [values, setValues] = useState("");
   const [nextPage, setNextPage] = useState(1);
-  const { apiKey, fetcher, inputRef } = useMovies();
+  const { apiKey, fetcher, inputRef, addToCart } = useMovies();
   const [url, setUrl] = useState(
     `https://api.themoviedb.org/3/movie/popular/?api_key=${apiKey}&page=${nextPage}`
   );
@@ -86,7 +86,8 @@ const MoviePage = () => {
               key={item.id}
               imgClassName={"!h-[200px]"}
               gapButton="mb-2"
-              className={"!mx-0"}></MovieItem>
+              className={"!mx-0"}
+              onClick={() => addToCart(item)}></MovieItem>
           ))
         )}
       </div>

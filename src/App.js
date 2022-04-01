@@ -11,6 +11,7 @@ import TiviSeriesPage from "./pages/TvSeries/TiviSeriesPage";
 import TiviSeriesDetails from "./pages/TvSeries/TiviSeriesDetails";
 import TiviSeriesWatching from "./pages/TvSeries/TiviSeriesWatching";
 import Scroll from "./components/scroll/Scroll";
+import CartMovie from "./pages/Cart/CartMovie";
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
           <Route
             path="/comingsoon"
             element={<ComingSoonMovies></ComingSoonMovies>}></Route>
+          <Route path="cart" element={<CartMovie></CartMovie>}></Route>
           <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
         </Route>
       </Routes>

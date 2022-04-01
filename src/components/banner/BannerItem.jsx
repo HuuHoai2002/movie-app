@@ -4,7 +4,7 @@ import ButtonPrimary from "../button/ButtonPrimary";
 import ButtonSecondary from "../button/ButtonSecondary";
 
 const BannerItem = ({ data, onClick }) => {
-  const { imagesPath, handleNavigate } = useMovies();
+  const { imagesPath, handleNavigate, addToCart } = useMovies();
   return (
     <div className="banner w-full h-[350px] relative select-none rounded-3xl overflow-hidden mb-5">
       <div
@@ -25,7 +25,7 @@ const BannerItem = ({ data, onClick }) => {
           <ButtonPrimary onClick={onClick} onSpin={true} className="!py-3">
             Watch
           </ButtonPrimary>
-          <ButtonSecondary></ButtonSecondary>
+          <ButtonSecondary onClick={() => addToCart(data)}></ButtonSecondary>
         </div>
       </div>
     </div>

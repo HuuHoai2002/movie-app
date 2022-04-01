@@ -39,8 +39,10 @@ const Banner = () => {
           ))
         )}
       </Swiper>
-      <User isLogin={true}></User>
-      <MovieReview title={"Popular Movies"} info="top_rated"></MovieReview>
+      <div className="page-container-review fixed top-0 !h-full max-w-[100vh] right-0 flex flex-col justify-between">
+        <User isLogin={true}></User>
+        <MovieReview title={"Popular Movies"} info="top_rated"></MovieReview>
+      </div>
     </Fragment>
   );
 };

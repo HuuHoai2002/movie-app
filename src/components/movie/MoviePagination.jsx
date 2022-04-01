@@ -9,7 +9,7 @@ import MovieItem from "./MovieItem";
 const itemsPerPage = 20;
 const MoviePagination = ({ movieID, info = "" }) => {
   const [nextPage, setNextPage] = useState(1);
-  const { apiKey, fetcher } = useMovies();
+  const { apiKey, fetcher, addToCart } = useMovies();
 
   const [url, setUrl] = useState(
     `https://api.themoviedb.org/3/movie/${movieID}/${info}?api_key=${apiKey}&page=${nextPage}`
@@ -53,7 +53,8 @@ const MoviePagination = ({ movieID, info = "" }) => {
               key={item.id}
               imgClassName={"!h-[200px]"}
               gapButton="mb-2"
-              className={"!mx-0"}></MovieItem>
+              className={"!mx-0"}
+              onClick={() => addToCart(item)}></MovieItem>
           ))
         )}
       </div>
