@@ -5,7 +5,7 @@ import Item from "../components/dashboard/Item";
 
 const DashBoard = () => {
   return (
-    <div className="fixed top-0 left-0 w-full max-w-[180px] h-screen pl-5 border-r border-[#24252A]">
+    <div className="fixed top-0 left-0 w-full max-w-[180px] lg:max-w-[60px] h-screen pl-5 border-r border-[#24252A]">
       <h1 className="font-semibold mb-10 mt-5 flex gap-x-2 items-center">
         <div className="leading-none">
           <svg
@@ -16,7 +16,7 @@ const DashBoard = () => {
             <path d="M511.42,450.86s-96.49-5.21-91.65-87.51c0,0-16.4,40.59-38.19,55.09C408.18,437.86,430.1,460,512,457.7Z" />
           </svg>
         </div>
-        <div>
+        <div className="lg:hidden">
           <span>Movies App</span>
           <span className="text-primary font-bold text-2xl leading-none">
             .
@@ -108,18 +108,14 @@ const DashBoard = () => {
             </Item>
           )}
         </NavLink>
-        <NavLink to={"/logout"}>
-          {({ isActive }) => (
-            <Item text={"Log Out"} isActive={isActive}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                className="w-5 h-5">
-                <path d="M160 416H96c-17.67 0-32-14.33-32-32V128c0-17.67 14.33-32 32-32h64c17.67 0 32-14.33 32-32S177.7 32 160 32H96C42.98 32 0 74.98 0 128v256c0 53.02 42.98 96 96 96h64c17.67 0 32-14.33 32-32S177.7 416 160 416zM502.6 233.4l-128-128c-12.51-12.51-32.76-12.49-45.25 0c-12.5 12.5-12.5 32.75 0 45.25L402.8 224H192C174.3 224 160 238.3 160 256s14.31 32 32 32h210.8l-73.38 73.38c-12.5 12.5-12.5 32.75 0 45.25s32.75 12.5 45.25 0l128-128C515.1 266.1 515.1 245.9 502.6 233.4z" />
-              </svg>
-            </Item>
-          )}
-        </NavLink>
+        <Item text={"Log Out"} isLogout={true} title="Log Out">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            className="w-5 h-5 fill-primary">
+            <path d="M160 416H96c-17.67 0-32-14.33-32-32V128c0-17.67 14.33-32 32-32h64c17.67 0 32-14.33 32-32S177.7 32 160 32H96C42.98 32 0 74.98 0 128v256c0 53.02 42.98 96 96 96h64c17.67 0 32-14.33 32-32S177.7 416 160 416zM502.6 233.4l-128-128c-12.51-12.51-32.76-12.49-45.25 0c-12.5 12.5-12.5 32.75 0 45.25L402.8 224H192C174.3 224 160 238.3 160 256s14.31 32 32 32h210.8l-73.38 73.38c-12.5 12.5-12.5 32.75 0 45.25s32.75 12.5 45.25 0l128-128C515.1 266.1 515.1 245.9 502.6 233.4z" />
+          </svg>
+        </Item>
       </DashBoardItem>
     </div>
   );

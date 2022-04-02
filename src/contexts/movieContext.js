@@ -57,12 +57,17 @@ const MovieProvider = ({ children }) => {
   const showToastDeleteSuccess = () =>
     toast.success("You just removed a movie from your cart");
   //DELETE
+  // const modal = useModal();
   const deleteFromCart = (movieID) => {
-    const newCart = cartMovie.filter((item) => item.id !== movieID);
-    setValue(newCart);
-    setCartMovie(newCart);
-    showToastDeleteSuccess();
+    if (window.confirm("Are you sure you want to delete this movie?")) {
+      const newCart = cartMovie.filter((item) => item.id !== movieID);
+      setValue(newCart);
+      setCartMovie(newCart);
+      showToastDeleteSuccess();
+    }
   };
+
+  const [userLogin, setUserLogin] = useState(false);
   const value = {
     apiKey,
     frameEmbed,
@@ -80,6 +85,8 @@ const MovieProvider = ({ children }) => {
     cartMovie,
     addToCart,
     deleteFromCart,
+    setUserLogin,
+    userLogin,
   };
   return (
     <movieContext.Provider value={value}>{children}</movieContext.Provider>

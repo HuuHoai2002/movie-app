@@ -13,7 +13,7 @@ const TiviSiriesPage = () => {
   const [nextPage, setNextPage] = useState(1);
   const { apiKey, fetcher, inputRef } = useMovies();
   const [url, setUrl] = useState(
-    `https://api.themoviedb.org/3/tv/top_rated/?api_key=${apiKey}&page=${nextPage}`
+    `https://api.themoviedb.org/3/tv/popular/?api_key=${apiKey}&page=${nextPage}`
   );
   const { searchTvSeriesPath } = useMovies();
   // Get value input
@@ -27,7 +27,7 @@ const TiviSiriesPage = () => {
       setUrl(`${searchTvSeriesPath}${values}&${nextPage}`);
     } else {
       setUrl(
-        `https://api.themoviedb.org/3/tv/top_rated/?api_key=${apiKey}&page=${nextPage}`
+        `https://api.themoviedb.org/3/tv/popular/?api_key=${apiKey}&page=${nextPage}`
       );
     }
   }, [values, nextPage, searchTvSeriesPath, apiKey, inputRef]);

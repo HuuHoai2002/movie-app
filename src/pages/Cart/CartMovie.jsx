@@ -32,7 +32,7 @@ const CartMovie = () => {
             deleteOnClick={() => deleteFromCart(item.id)}></MovieItem>
         ))}
       </div>
-      <ToastContainer></ToastContainer>
+      <ToastContainer className={"font-semibold"}></ToastContainer>
     </div>
   );
 };

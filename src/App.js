@@ -12,6 +12,7 @@ import TiviSeriesDetails from "./pages/TvSeries/TiviSeriesDetails";
 import TiviSeriesWatching from "./pages/TvSeries/TiviSeriesWatching";
 import Scroll from "./components/scroll/Scroll";
 import CartMovie from "./pages/Cart/CartMovie";
+import Login from "./pages/Login/Login";
 
 const App = () => {
   return (
@@ -41,6 +42,7 @@ const App = () => {
           <Route path="cart" element={<CartMovie></CartMovie>}></Route>
           <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
         </Route>
+        <Route path="/login" element={<Login></Login>}></Route>
       </Routes>
       <Scroll></Scroll>
     </Fragment>

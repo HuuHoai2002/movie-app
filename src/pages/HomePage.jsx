@@ -7,7 +7,8 @@ const HomePage = () => {
   return (
     <Fragment>
       <DashBoard></DashBoard>
-      <ToastContainer></ToastContainer>
+      <ToastContainer
+        className={"font-semibold text-[#191A1F] text-base"}></ToastContainer>
       <Outlet></Outlet>
     </Fragment>
   );
